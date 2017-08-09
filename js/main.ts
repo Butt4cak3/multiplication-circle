@@ -6,7 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		canvas = document.getElementById("canvas") as HTMLCanvasElement,
 		ctx = canvas.getContext("2d"),
 		inputPoints = document.getElementById("inputPoints") as HTMLInputElement,
-		inputMultiplier = document.getElementById("inputMultiplier") as HTMLInputElement;
+		inputMultiplier = document.getElementById("inputMultiplier") as HTMLInputElement,
+		infoLink = document.getElementById("infolink");
+	
+	infoLink.addEventListener("click", toggleInfo);
 
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
@@ -47,6 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
 			ctx.moveTo(p1.x, p1.y);
 			ctx.lineTo(p2.x, p2.y);
 			ctx.stroke();
+		}
+	}
+
+	function toggleInfo() {
+		const elem = document.getElementById("info");
+		
+		if (elem.style.visibility !== "visible") {
+			console.log("visible");
+			elem.style.visibility = "visible";
+		} else {
+			console.log("hidden");
+			elem.style.visibility = "hidden";
 		}
 	}
 });
